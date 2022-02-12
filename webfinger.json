@@ -1,0 +1,11 @@
+{
+  "subject": "acct:aceinpink@aceinpink.social",
+
+  "links": [
+    {
+      "rel": "self",
+      "type": "application/activity+json",
+      "href": "https://aceinpink.social/actor"
+    }
+  ]
+}
