@@ -7,7 +7,7 @@ import social.aceinteract.plugins.configureRouting
 fun main() {
     val environment = applicationEngineEnvironment {
         connector {
-            port = 80
+            port = 8080
             host = "0.0.0.0"
         }
         watchPaths = listOf("classes")
