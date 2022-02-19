@@ -1,0 +1,14 @@
+version: '2.1'
+
+# Services we are going to use when running
+services:
+  # Backend instance that depends on database instance to start.
+  backend:
+    image: activitypub:latest
+    mem_limit: 300m
+    environment:
+      - ENVIRONMENT=dev
+    restart: always
+    # Internal port 3500 should always match your backend defined port
+    ports:
+      - "3510:8080"
