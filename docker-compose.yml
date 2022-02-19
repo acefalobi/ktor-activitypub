@@ -12,3 +12,14 @@ services:
     # Internal port 3500 should always match your backend defined port
     ports:
       - "3510:8080"
+  # Reverse proxy.
+  reverse:
+    container_name: reverse
+    hostname: reverse
+    image: nginx
+    ports:
+      - "80:3510"
+      - "443:3510"
+    volumes:
+      - /etc/nginx/aceinpink.social:/etc/nginx
+      - /etc/letsencrypt/live/aceinpink.social:/etc/ssl/private
