@@ -2,24 +2,27 @@ version: '2.1'
 
 # Services we are going to use when running
 services:
+  # Reverse proxy.
+  reverse-nginx:
+    container_name: reverse-nginx
+    image: nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - /etc/letsencrypt/live/aceinpink.social:/etc/ssl/private
+    depends_on:
+      - app
+
+
   # Backend instance that depends on database instance to start.
-  backend:
+  app:
+    restart: always
     image: activitypub:latest
-    mem_limit: 300m
     environment:
       - ENVIRONMENT=dev
-    restart: always
     # Internal port 3500 should always match your backend defined port
     ports:
       - "3510:8080"
-  # Reverse proxy.
-  reverse:
-    container_name: reverse
-    hostname: reverse
-    image: nginx
-    ports:
-      - "80:3510"
-      - "443:3510"
-    volumes:
-      - /etc/nginx/aceinpink.social:/etc/nginx
-      - /etc/letsencrypt/live/aceinpink.social:/etc/ssl/private
