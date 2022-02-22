@@ -13,6 +13,8 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/includes:/etc/nginx/includes
       - /etc/letsencrypt/live/aceinpink.social:/etc/ssl/private
+    depends_on:
+      - app
 
 
   # Backend instance that depends on database instance to start.
