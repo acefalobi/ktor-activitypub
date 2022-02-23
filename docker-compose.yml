@@ -6,13 +6,14 @@ services:
   reverse-nginx:
     container_name: reverse-nginx
     image: nginx
+    restart: always
     ports:
       - "80:80"
       - "443:443"
     volumes:
+      - /etc/letsencrypt/live/aceinpink.social:/etc/ssl/private
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/includes:/etc/nginx/includes
-      - /etc/letsencrypt/live/aceinpink.social:/etc/ssl/private
 
 
   # Backend instance that depends on database instance to start.
