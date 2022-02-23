@@ -13,8 +13,6 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/includes:/etc/nginx/includes
       - /etc/letsencrypt/live/aceinpink.social:/etc/ssl/private
-    depends_on:
-      - app
 
 
   # Backend instance that depends on database instance to start.
@@ -23,6 +21,3 @@ services:
     image: activitypub:latest
     environment:
       - ENVIRONMENT=dev
-    # Internal port 3500 should always match your backend defined port
-    ports:
-      - "3510:8080"
