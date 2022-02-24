@@ -17,6 +17,7 @@ RUN mkdir /app
 
 # Entrypoint definition
 COPY --from=build /appbuild/build/install/social.aceinteract.ktor-activitypub/ /app/
+COPY --from=build /appbuild/webfinger.json /app/bin/webfinger.json
 WORKDIR /app/bin
 CMD ["./social.aceinteract.ktor-activitypub"]
 # End Container setup --------
