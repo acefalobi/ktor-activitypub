@@ -1,0 +1,17 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    "https://w3id.org/security/v1"
+  ],
+
+  "id": "https://aceinpink.social/actor",
+  "type": "Person",
+  "preferredUsername": "aceinpink",
+  "inbox": "https://aceinpink.social/inbox",
+
+  "publicKey": {
+    "id": "https://aceinpink.social/actor#main-key",
+    "owner": "https://aceinpink.social/actor",
+    "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4sGnVnK+njFOlIxwKC96\ns6qB6pAiqjW+/0XfdUxBBkDujwAR3JmDkt8rE1CP4EnJEDj8rZ/2vMqPB3pFlNSv\npbNsaqQ3SZXIo57FUrmB/dvVeG0StxVVsGqUY6gt4GmMTQwGioHnNhAZL80+GdeV\nFlWy9K97mWUFkfAFsChusUEJv8yx0g/T4zQafVCnc3/97a/ppQ4n+PeZLa+H8i4u\nAlWqrJLcfT9TxjqJntUZfECTP+YBkwndIRPr0Wz/nEAaxqbdkWrA1Rhfa6oKZ3h8\n1fEQwrTEE0q7iiX5ftn7McNM4b2CXePjUIphhZi+T6zV3OkotmYTdU4BYdWlTlhN\n3QIDAQAB\n-----END PUBLIC KEY-----"
+  }
+}

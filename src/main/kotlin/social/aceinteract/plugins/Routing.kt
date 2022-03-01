@@ -13,17 +13,16 @@ fun Application.configureRouting() {
         get("/") {
             call.respondText(File("./").absolutePath)
         }
-        get("/hell") {
-            call.respondText("no to the no")
+        get("/actor") {
+            call.respond(File("json/actor.json").readText())
         }
         get("/.well-known/webfinger") {
             val webfingerResource = call.request.queryParameters["resource"]
             if (webfingerResource.equals("acct:aceinpink@aceinpink.social")) {
-                call.respond(File("webfinger.json").readText())
+                call.respond(File("json/webfinger.json").readText())
             } else {
                 call.respond(HttpStatusCode.NotFound, "")
             }
-            call.respondText("no to the no")
         }
     }
     routing {

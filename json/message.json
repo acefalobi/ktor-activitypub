@@ -1,0 +1,17 @@
+{
+  "@context": "https://www.w3.org/ns/activitystreams",
+
+  "id": "https://aceinpink.social/create-hello-world",
+  "type": "Create",
+  "actor": "https://aceinpink.social/actor",
+
+  "object": {
+    "id": "https://aceinpink.social/hello-world",
+    "type": "Note",
+    "published": "2018-06-23T17:17:11Z",
+    "attributedTo": "https://aceinpink.social/actor",
+    "inReplyTo": "https://mastodon.social/@Gargron/100254678717223630",
+    "content": "<p>Hello world</p>",
+    "to": "https://www.w3.org/ns/activitystreams#Public"
+  }
+}
