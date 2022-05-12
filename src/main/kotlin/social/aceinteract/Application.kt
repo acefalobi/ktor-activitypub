@@ -30,8 +30,8 @@ fun main() {
             configureRouting()
         }
     }
-    embeddedServer(Netty, environment).start(wait = true)
-//    makeRequest()
+//    embeddedServer(Netty, environment).start(wait = true)
+    makeRequest()
 }
 
 fun makeRequest() {
@@ -50,9 +50,9 @@ fun makeRequest() {
 
     val body = message.toRequestBody("application/json; charset=utf-8".toMediaType())
     val request = Request.Builder()
-        .url("https://mastodon.social/inbox")
+        .url("https://aceinteract.social/inbox")
         .post(body)
-        .header("Host", "mastodon.social")
+        .header("Host", "aceinteract.social")
         .header("Date", serverTime ?: "")
         .header("Digest", "SHA-256=$digest")
         .header("Signature", "keyId=\"https:///aceinpink.social/actor\",headers=\"(request-target) host date digest\",signature=\"$signature\"")
@@ -65,7 +65,7 @@ fun makeRequest() {
 
 
 fun getSignature(serverTime: String?, digest: String): String {
-    val signString = "(request-target): post /inbox\nhost: mastodon.social\ndate: $serverTime\ndigest: SHA-256=$digest"
+    val signString = "(request-target): post /inbox\nhost: aceinteract.social\ndate: $serverTime\ndigest: SHA-256=$digest"
 
     val privateKey = getPrivateKeyFromString(File("keys/private-pkcs8.pem").readText())
     val sign = Signature.getInstance("SHA256withRSA")

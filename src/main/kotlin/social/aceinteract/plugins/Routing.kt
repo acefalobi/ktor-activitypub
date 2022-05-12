@@ -15,6 +15,7 @@ fun Application.configureRouting() {
         }
         get("/actor") {
             call.respond(File("json/actor.json").readText())
+            call.respondText(File("json/actor.json").readText(), ContentType.parse("application/activity+json"))
         }
         get("/.well-known/webfinger") {
             val webfingerResource = call.request.queryParameters["resource"]
