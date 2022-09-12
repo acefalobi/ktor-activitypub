@@ -1,7 +1,10 @@
 package social.aceinteract
 
+import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
+import io.ktor.server.plugins.callloging.*
+import io.ktor.server.plugins.cors.routing.*
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -28,7 +31,10 @@ fun main() {
         watchPaths = listOf("classes")
         module {
             configureRouting()
-//            install(CallLogging)
+            install(CORS) {
+                anyHost()
+            }
+            install(CallLogging)
         }
     }
     embeddedServer(Netty, environment).start(wait = true)
