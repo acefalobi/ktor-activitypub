@@ -4,6 +4,7 @@ import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import io.ktor.util.pipeline.*
 import java.io.File
 
 fun Application.configureRouting() {
@@ -17,6 +18,12 @@ fun Application.configureRouting() {
             call.respond(File("json/actor.json").readText())
             call.respondText(File("json/actor.json").readText(), ContentType.parse("application/activity+json"))
         }
+        head("/webid.ttl") {
+            getWebID()
+        }
+        get("/webid.ttl") {
+            getWebID()
+        }
         get("/.well-known/webfinger") {
             val webfingerResource = call.request.queryParameters["resource"]
             if (webfingerResource.equals("acct:aceinpink@aceinpink.social")) {
@@ -26,6 +33,8 @@ fun Application.configureRouting() {
             }
         }
     }
-    routing {
-    }
+}
+
+suspend fun PipelineContext<Unit, ApplicationCall>.getWebID() {
+    call.respondText(File("json/webid.ttl").readText(), ContentType.parse("text/turtle"))
 }

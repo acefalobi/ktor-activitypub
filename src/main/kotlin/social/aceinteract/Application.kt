@@ -28,10 +28,11 @@ fun main() {
         watchPaths = listOf("classes")
         module {
             configureRouting()
+//            install(CallLogging)
         }
     }
-//    embeddedServer(Netty, environment).start(wait = true)
-    makeRequest()
+    embeddedServer(Netty, environment).start(wait = true)
+//    makeRequest()
 }
 
 fun makeRequest() {
