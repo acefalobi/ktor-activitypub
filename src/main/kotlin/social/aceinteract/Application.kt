@@ -30,11 +30,12 @@ fun main() {
         }
         watchPaths = listOf("classes")
         module {
-            configureRouting()
+            install(CallLogging)
             install(CORS) {
                 anyHost()
+                allowHeaders { true }
             }
-            install(CallLogging)
+            configureRouting()
         }
     }
     embeddedServer(Netty, environment).start(wait = true)
@@ -42,8 +43,6 @@ fun main() {
 }
 
 fun makeRequest() {
-    "application/json; charset=utf-8".toMediaType()
-
     val message = File("json/message.json").readText()
 
     val serverTime = getServerTime()
