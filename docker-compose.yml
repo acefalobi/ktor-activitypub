@@ -10,6 +10,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    volumes:
+      - ./keys:/keys
 
 
   # Backend instance that depends on database instance to start.
