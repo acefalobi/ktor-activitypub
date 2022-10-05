@@ -11,7 +11,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - /etc/letsencrypt/live/aceinpink.social:/etc/ssl/private
+      - ../aceinpink.social:/etc/ssl/private
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/includes:/etc/nginx/includes
 
