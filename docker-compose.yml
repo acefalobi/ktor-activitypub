@@ -10,21 +10,11 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    volumes:
-      - /etc/letsencrypt/archive/aceinpink.social:/etc/ssl/private
-      - ./keys:/keys
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./nginx/includes:/etc/nginx/includes
 
 
   # Backend instance that depends on database instance to start.
   app:
     restart: always
     image: activitypub:latest
-    volumes:
-      - /etc/letsencrypt/archive/aceinpink.social:/etc/ssl/private
-      - ./keys:/keys
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./nginx/includes:/etc/nginx/includes
     environment:
       - ENVIRONMENT=dev
