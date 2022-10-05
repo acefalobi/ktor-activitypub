@@ -11,9 +11,9 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx/conf.d:/etc/ssl/aceinpink.social
-#      - ./nginx/conf.d:/etc/nginx/conf.d
-#      - ./nginx/includes:/etc/nginx/includes
+      - /etc/letsencrypt/live/aceinpink.social:/etc/ssl/aceinpink.social
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/includes:/etc/nginx/includes
 
 
   # Backend instance that depends on database instance to start.
