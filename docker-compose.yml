@@ -11,8 +11,8 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - /etc/letsencrypt/archive/aceinpink.social-0002:/etc/ssl/private
-      - /etc/letsencrypt/archive/aceinpink.social-0004:/etc/ssl/subdomains
+      - /etc/letsencrypt/archive/aceinpink.social-0002:/etc/ssl/subdomains
+      - /etc/letsencrypt/archive/aceinpink.social-0004:/etc/ssl/private
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/includes:/etc/nginx/includes
 
